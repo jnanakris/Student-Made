@@ -2,7 +2,17 @@ import React from 'react'
 
 function Footer() {
     return (
-        <div>Footer</div>
+        <div className='flex'>
+
+            <div>
+                Left side
+            </div>
+
+            <div>
+                right side
+            </div>
+
+        </div>
     )
 }
 
