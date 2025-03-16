@@ -1,14 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
     return (
         <div className='px-10 flex justify-between items-center h-[10vh] bg-(--niner-green) text-white'>
-            <h1 className='text-4xl'>Niner Mine</h1>
+            <h1 className='text-4xl'>
+                <Link to="/">Niner Mine</Link>
+            </h1>
 
-            <div className='flex items-center grow max-w-[200px] justify-between'>
-                <p>About</p>
-                <p>Shop</p>
-                <p>Join/Login</p>
+            <div className='flex items-center grow max-w-[300px] justify-between text-[1.5rem]'>
+                <Link to="/about" >About</Link>
+                <Link to="/products">Shop</Link>
+                <Link to="/login">Join/Login</Link>
             </div>
         </div>
     )
