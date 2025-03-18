@@ -18,9 +18,6 @@ function App() {
       <Header/>
 
       <main className='p-4 grow bg-gray-100 flex flex-row'>
-        <CategoryCard/>
-        <CategoryCard/>
-        <CategoryCard/>
         <Outlet/>
       </main>
 
