@@ -20,9 +20,6 @@ function App() {
 
       <main className='p-4 grow bg-gray-100 flex flex-row'>
         <Outlet/>
-        <CreatorBubble/>
-        <CreatorBubble/>
-        
       </main>
 
       <Footer/>
