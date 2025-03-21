@@ -10,8 +10,9 @@ import App from './App.jsx'
 import Home from './routes/Home.jsx'
 import Products from './routes/Products.jsx'
 import Cart from './routes/Cart.jsx'
-import Login from './routes/Login.jsx'
+
 import About from './routes/About.jsx'
+import LoginPage from './routes/LoginPage.jsx'
 
 import './index.css'
 
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home/> },
       { path: 'products', element: <Products/> },
       { path: 'cart', element: <Cart/> },
-      { path: 'login', element: <Login/> },
+      { path: 'login', element: <LoginPage/> },
       { path: 'about', element: <About/> },
     ],  
   },

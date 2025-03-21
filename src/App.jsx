@@ -8,6 +8,7 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import CategoryCard from './components/CategoryCard'
+import CreatorBubble from './components/CreatorBubble'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,8 @@ function App() {
 
       <main className='p-4 grow bg-gray-100 flex flex-row'>
         <Outlet/>
+        <CreatorBubble/>
+        
       </main>
 
       <Footer/>
