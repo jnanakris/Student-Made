@@ -1,7 +1,14 @@
-import React from 'react' 
+import React from 'react'
+import { Link } from 'react-router-dom';
+import useEmblaCarousel from 'embla-carousel-react'
+
+import categoryData from '../data/categories.json';
+
 import CategoryCard from '../components/CategoryCard'
 
 function Home() {
+    const [emblaRef] = useEmblaCarousel({ loop: true});
+
     return (
         <div className='flex flex-col'>
             
@@ -15,16 +22,26 @@ function Home() {
         
             {/* Category section, will contain category cards. horizontal scroll */}
 
-            <div className='w-screen h-[60vh] bg-(--niner-gold) flex flex-col '>
+            <div className='w-screen h-[60vh] bg-(--niner-gold) flex flex-col'>
 
                 <p className='py-15 text-6xl text-white '>
                     Shop By Category
                 </p>
 
-                <div className=''>
-                    <CategoryCard/>
+                
+                    {/* Embla Carousel Wrapper */}
+                <div ref={emblaRef} className='overflow-hidden w-full'>
+                <div className='flex'>
+                    {categoryData.categories.map((cat, index) => (
+                        <div key={index} className='flex-shrink-0 min-w-[250px] mx-2'>
+                        <Link to={cat.link}>
+                            <CategoryCard imgSrc={cat.img} category={cat.name} />
+                        </Link>
+                        </div>
+                    ))}
+                    </div>
                 </div>
-
+                
             </div>
 
             {/* Featured items that are being sold. Could use the creator bubble for this */}
