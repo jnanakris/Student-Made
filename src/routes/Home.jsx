@@ -7,7 +7,10 @@ import categoryData from '../data/categories.json';
 import CategoryCard from '../components/CategoryCard'
 
 function Home() {
-    const [emblaRef] = useEmblaCarousel({ loop: true});
+    const [emblaRef, emblaAPI] = useEmblaCarousel({ loop: true});
+
+    const scrollPrev = () => emblaAPI.scrollPrev();
+    const scrollNext = () => emblaAPI.scrollNext();
 
     return (
         <div className='flex flex-col'>
@@ -24,23 +27,41 @@ function Home() {
 
             <div className='w-screen h-[60vh] bg-(--niner-gold) flex flex-col'>
 
-                <p className='py-15 text-6xl text-white '>
+                <p className='py-15 text-6xl text-white place-self-center'>
                     Shop By Category
                 </p>
 
                 
-                    {/* Embla Carousel Wrapper */}
-                <div ref={emblaRef} className='overflow-hidden w-full'>
-                <div className='flex'>
-                    {categoryData.categories.map((cat, index) => (
-                        <div key={index} className='flex-shrink-0 min-w-[250px] mx-2'>
-                        <Link to={cat.link}>
-                            <CategoryCard imgSrc={cat.img} category={cat.name} />
-                        </Link>
+                {/* Embla Carousel Wrapper */}
+                <div className='relative'>
+                    <div ref={emblaRef} className='overflow-hidden w-full'>
+                        <div className='flex'>
+                            {categoryData.categories.map((cat, index) => (
+                                <div key={index} className='flex-shrink-0 min-w-[250px] mx-2'>
+                                    <Link to={cat.link}>
+                                        <CategoryCard imgSrc={cat.img} category={cat.name} />
+                                    </Link>
+                                </div>
+                            ))}
                         </div>
-                    ))}
                     </div>
+
+                    {/* Left Arrow */}
+                    <button 
+                        onClick={scrollPrev} 
+                        className='absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2'>
+                        &lt;
+                    </button>
+
+                    {/* Right Arrow */}
+                    <button 
+                        onClick={scrollNext} 
+                        className='absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2'>
+                        &gt;
+                    </button>
                 </div>
+
+                
                 
             </div>
 
