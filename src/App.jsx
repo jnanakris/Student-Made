@@ -16,7 +16,7 @@ function App() {
 
       <Header/>
 
-      <main className='grow bg-gray-100 flex flex-row'>
+      <main className='grow bg-gray-100 flex flex-row justify-center items-center'>
         <Outlet/>
       </main>
 
