@@ -1,0 +1,54 @@
+{
+    "creators": [
+        {
+            "name": "Vendor1",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor1"
+        },
+        {
+            "name": "Vendor2",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor2"
+        },
+        {
+            "name": "Vendor3",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor3"
+        },
+        {
+            "name": "Vendor4",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor4"
+        },
+        {
+            "name": "Vendor5",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor5"
+        },
+        {
+            "name": "Vendor6",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor6"
+        },
+        {
+            "name": "Vendor7",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor7"
+        },
+        {
+            "name": "Vendor8",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor8"
+        },
+        {
+            "name": "Vendor9",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor9"
+        },
+        {
+            "name": "Vendor10",
+            "img": "/assets/person-example.jpg",
+            "link": "/products/Vendor10"
+        }
+    ]
+}
