@@ -13,8 +13,10 @@ import Cart from './routes/Cart.jsx'
 
 import About from './routes/About.jsx'
 import LoginPage from './routes/LoginPage.jsx'
+import SignUp from './routes/SignUp.jsx'
 
 import './index.css'
+
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,7 @@ const router = createBrowserRouter([
       { path: 'products', element: <Products/> },
       { path: 'cart', element: <Cart/> },
       { path: 'login', element: <LoginPage/> },
+      { path: 'signup', element: <SignUp/> },
       { path: 'about', element: <About/> },
     ],  
   },
