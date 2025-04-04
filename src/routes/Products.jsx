@@ -9,12 +9,12 @@ function Products() {
                 Shop
             </p>
 
-            <div className='flex flex-row flex-wrap justify-center p-10'>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
+            <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-10 w-full'>
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
             </div>
         </div>
     )
