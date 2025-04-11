@@ -14,6 +14,8 @@ import Cart from './routes/Cart.jsx'
 import About from './routes/About.jsx'
 import LoginPage from './routes/LoginPage.jsx'
 import SignUp from './routes/SignUp.jsx'
+import ForgotPassword from './routes/ForgotPassword.jsx'
+import ResetPassword from './routes/ResetPassword.jsx'
 
 import './index.css'
 
@@ -29,6 +31,8 @@ const router = createBrowserRouter([
       { path: 'login', element: <LoginPage/> },
       { path: 'signup', element: <SignUp/> },
       { path: 'about', element: <About/> },
+      {path: 'forgotPassword', element: <ForgotPassword/>},
+      {path: 'resetPassword', element: <ResetPassword/>}
     ],  
   },
 ]);

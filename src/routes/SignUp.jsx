@@ -15,6 +15,10 @@ const SignUp = () => {
     const [successMessage, setSuccessMessage] = useState("");
     const navigate = useNavigate()
 
+    const validateEmail = (email) => {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,6 +26,11 @@ const SignUp = () => {
         setError("")//Clearing previous error
         setPasswordError("")//clearing password errors
         setSuccessMessage("")//clearing success message 
+
+        if (!validateEmail(email)){
+          setError("Please enter a valid email address!")
+          return;
+        }
 
         if (password !== confirmPassword){
           setPasswordError("Password do not match");

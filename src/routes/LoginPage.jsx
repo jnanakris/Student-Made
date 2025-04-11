@@ -83,9 +83,9 @@ const LoginPage = () => {
               <input type="checkbox" className="mr-2" />
               Remember me
             </label>
-            <a href="#" className="text-green-700 hover:underline">
+            <Link to ="/forgotPassword" className="text-green-700 hover:underline">
               Forgot password?
-            </a>
+            </Link>
           </div>
 
           {error && <p className="text-red-500 text-sm">{error}</p>}
