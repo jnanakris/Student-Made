@@ -2,8 +2,8 @@ import React from "react";
 
 const LoginPage = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white">
-      <div className="w-full max-w-1x2 p-12 bg-white shadow-lg rounded-lg text-center">
+<div className="flex items-center justify-center min-h-screen">
+      <div className="bg-white p-8 shadow-md rounded-md w-96">
         
         <h1 className="text-4xl font-bold text-green-900">Niner Mine</h1>
 

@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { Outlet } from 'react-router-dom'
 
 import './App.css'
@@ -18,7 +16,7 @@ function App() {
 
       <Header/>
 
-      <main className='grow bg-gray-100 flex flex-row'>
+      <main className='grow bg-white-100 flex flex-row justify-center'>
         <Outlet/>
       </main>
 

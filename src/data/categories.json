@@ -1,0 +1,39 @@
+{
+    "categories": [
+        {
+            "name": "Jewelry",
+            "img": "/assets/example-image.jpg",
+            "link": "/products/jewelry"
+        },
+        {
+            "name": "Accessories",
+            "img": "/assets/example-image.jpg",
+            "link": "/products/accessories"
+        },
+        {
+            "name": "Prints",
+            "img": "/assets/example-image.jpg",
+            "link": "/products/prints"
+        },
+        {
+            "name": "Technology",
+            "img": "/assets/example-image.jpg",
+            "link": "/products/technology"
+        },
+        {
+            "name": "School Spirit",
+            "img": "/assets/example-image.jpg",
+            "link": "/products/school-spirit"
+        },
+        {
+            "name": "Crochet",
+            "img": "/assets/example-image.jpg",
+            "link": "/products/crochet"
+        },
+        {
+            "name": "Art",
+            "img": "/assets/example-image.jpg",
+            "link": "/products/art"
+        }
+    ]
+}
