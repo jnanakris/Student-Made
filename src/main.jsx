@@ -13,6 +13,8 @@ import Cart from './routes/Cart.jsx'
 import About from './routes/About.jsx'
 import LoginPage from './routes/LoginPage.jsx'
 import BuyerProfile from './routes/BuyerProfile.jsx'
+import WishList from './routes/Wishlist.jsx'
+import Checkout from './routes/Checkout.jsx'
 
 import './index.css'
 
@@ -26,7 +28,9 @@ const router = createBrowserRouter([
       { path: 'cart', element: <Cart/> },
       { path: 'login', element: <LoginPage/> },
       { path: 'about', element: <About/> },
-      { path: 'buyer-profile', element: <BuyerProfile/>}, 
+      { path: 'buyer-profile', element: <BuyerProfile/>},
+      { path: 'wishlist', element: <WishList/> },
+      { path: 'checkout', element: <Checkout/> }, 
     ],  
   },
 ]);

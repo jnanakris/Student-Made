@@ -1,9 +1,12 @@
 import React from 'react'
+import Cart from '../components/Cart'
 
-function Cart() {
+function CartPage() {
     return (
-        <div>Cart</div>
+        <div className="w-full">
+            <Cart />
+        </div>
     )
 }
 
-export default Cart
+export default CartPage
