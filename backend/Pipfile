@@ -7,9 +7,9 @@ name = "pypi"
 flask-cors = "*"
 flask-bcrypt = "*"
 flask-jwt-extended = "*"
-flask-sqlalchemy = "*"
 psycopg2 = "*"
 flask = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
