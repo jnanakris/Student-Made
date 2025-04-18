@@ -61,10 +61,11 @@ def forgot_password():
     user = User.query.filter_by(email=email).first()
     if not user:
         return jsonify({"error" : "No account found with this email"}), 404
+    
     token = secrets.token_urlsafe(32) #using secrets to generate a hexadecimal number
     user.reset_token = token
     #Here i am setting i hour date expiry inside the db. So that the user have 1 hour to change their password 
-    user.reset_token_expiry = datetime.utcnow() + timedelta(hours=1)
+    user.reset_token_expiry = datetime.utcnow() + timedelta(minutes=15)
     db.session.commit()
 
     print(f"Password reset link: http://localhost:5173/resetPassword?token={token}")
