@@ -26,4 +26,4 @@ STEP 5:
 -------------
 Test the following URL in the browser:
 http://localhost:5173/
-http://localhost:5173/proucts
+http://localhost:5173/products
