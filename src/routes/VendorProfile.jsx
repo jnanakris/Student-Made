@@ -331,7 +331,7 @@ function VendorProfile() {
                         <div className="space-y-4">
                             <div className="flex flex-col gap-4">
                                 {deliveryOption === 'shipping' && (
-                                    <div className="ml-2 space-y-4">
+                                    <form className="ml-2 space-y-4">
                                         <div className="flex gap-4">
                                             <div className="flex-1">
                                                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -522,7 +522,7 @@ function VendorProfile() {
                                                 </span>
                                             )}
                                         </div>
-                                    </div>
+                                    </form>
                                 )}
                             </div>
                         </div>

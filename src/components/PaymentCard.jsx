@@ -126,7 +126,7 @@ function PaymentCard({
 			</div>
 
 			{isEditing ? (
-				<div className="space-y-4">
+				<form className="space-y-4">
 					<div>
 						<label className="block text-sm font-medium text-gray-700 mb-1">
 							CARD NUMBER <span className="text-red-500">*</span>
@@ -221,7 +221,7 @@ function PaymentCard({
 							) : "Save Card"}
 						</button>
 					</div>
-				</div>
+				</form>
 			) : (
 				<div className="space-y-3">
 					<div className="flex items-center justify-between">
