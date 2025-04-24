@@ -21,6 +21,7 @@ function VendorProfile() {
         name: '',
         price: '',
         image: '',
+        description: '',
         active: true
     })
 
@@ -56,12 +57,22 @@ function VendorProfile() {
             name: '',
             price: '',
             image: '',
+            description: '',
             active: true
         })
 
         // Set ShowAddForm to false to close the conditional rendering
         setShowAddForm(false)
     }
+
+    const handleUpdateListing = (id, updatedData) => {
+        
+        const updatedListings = listings.map(listing => 
+            listing.id === id ? {...listing, ...updatedData } : listing
+        );
+
+        setListings(updatedListings);
+    };
 
     return (
         <div className="w-full mb-15 mx-15">
@@ -244,6 +255,21 @@ function VendorProfile() {
                                         required
                                     />
                                 </div>
+
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                        Description
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="description"
+                                        //Descritption for product
+                                        //value={newListing.image}
+                                        //onChange={handleInputChange}
+                                        className="w-full px-3 py-2 rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-green-700"
+                                        required
+                                    />
+                                </div>
                                 
                                 <div className="flex items-center">
                                     <input
@@ -284,10 +310,12 @@ function VendorProfile() {
                         {listings.map(listing => (
                             <ListingsCard 
                                 key={listing.id}
+                                id={listing.id}
                                 name={listing.name}
                                 price={listing.price}
                                 image={listing.image}
                                 active={listing.active}
+                                onUpdate={handleUpdateListing}
                             />
                         ))}
                     </div>
