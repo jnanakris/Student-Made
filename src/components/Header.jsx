@@ -1,9 +1,37 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { AuthContext } from '../routes/AuthContent';
+
 
 function Header() {
     const { cartItemCount } = useCart();
+    const navigate = useNavigate();
+    const {isLoggedIn, logout} = useContext(AuthContext)
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+    const handleLogout = () => {
+        logout();
+        navigate("/");
+    };
+
+    const toggleDropdown = (e) => {
+        e.stopPropagation();
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = () => {
+            if (isDropdownOpen) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isDropdownOpen]);
 
     return (
         <div className='px-10 flex justify-between items-center h-[10vh] bg-(--niner-green) text-white'>
@@ -14,7 +42,40 @@ function Header() {
             <div className='flex items-center grow max-w-[300px] justify-between text-[1.1rem]'>
                 <Link to="/about">About</Link>
                 <Link to="/products">Shop</Link>
-                <Link to="/login">Join/Login</Link>
+
+                {isLoggedIn ? (
+                    <div className="relative">
+                        <button 
+                            onClick={toggleDropdown}
+                            className="flex items-center hover:text-gray-300"
+                        >
+                            My Profile
+                        </button>
+                        {isDropdownOpen && (
+                            <div 
+                                className="absolute right-0 mt-2 w-40 bg-gray-100 rounded-md shadow z-10"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <Link 
+                                    to="/buyerprofile" 
+                                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                                    onClick={() => setIsDropdownOpen(false)}
+                                >
+                                    Profile
+                                </Link>
+                                <button 
+                                    onClick={handleLogout} 
+                                    className="w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                ) : (
+                    <Link to="/login" className="hover:text-gray-300">Join/Login</Link>
+                )}
+                
                 <Link to="/wishlist">Wishlist</Link>
                 <Link to="/cart" className="flex items-center relative">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

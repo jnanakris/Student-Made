@@ -1,13 +1,24 @@
-import React, {useState} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from "./AuthContent";
 
 const LoginPage = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const {login} = useContext(AuthContext);
+  const [rememberMe, setRememberMe] = useState(false);
+
+  useEffect(() => {
+    const rememberUser = localStorage.getItem("rememberUser")
+    if (rememberUser){
+      setUsernameOrEmail(rememberUser)
+      setRememberMe(true)
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,11 +28,18 @@ const LoginPage = () => {
       const response = await axios.post("http://localhost:5000/login", {
         username: usernameOrEmail,
         password,
+        remember_me : rememberMe
       });
       if (response.data.message === "Login Successful"){
-        alert("Login successful")
-        localStorage.setItem('username', usernameOrEmail);
+        login(usernameOrEmail)
+
+        if (rememberMe){
+          localStorage.setItem("rememberUser", usernameOrEmail);
+        } else {
+          localStorage.removeItem("rememberUser")
+        }
         setError("")
+
         setTimeout(() => {
           navigate('/');
         }, 1000);
@@ -73,8 +91,14 @@ const LoginPage = () => {
 
           <div className="flex justify-between items-center text-sm text-gray-700">
             <label className="flex items-center">
-              <input type="checkbox" className="mr-2" />
-              Remember me
+
+           <input
+            type = "checkbox"
+            className= "mr-2"
+            checked = {rememberMe}
+            onChange= {(e) => setRememberMe(e.target.checked)} 
+           />
+            Remember Me 
             </label>
             <Link to="/forgotPassword" className="text-green-700 hover:underline">
               Forgot password?

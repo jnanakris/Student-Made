@@ -11,7 +11,9 @@ class User(db.Model):
     email = db.Column(db.String(200), unique=True, nullable=False)
     password = db.Column(db.LargeBinary, nullable=False)
     reset_token = db.Column(db.String(100))
-    reset_token_expiry = db.Column(db.DateTime) #Token will expire in 1 hour 
+    reset_token_expiry = db.Column(db.DateTime) #Token will expire in 15 minutes 
+    remember_token = db.Column(db.String)
+    remember_token_expiry = db.Column(db.DateTime)
 
     def __init__(self, username, email, password):
         self.username = username

@@ -40,6 +40,7 @@ const router = createBrowserRouter([
       { path: 'vendor-profile', element: <VendorProfile/> },
       { path: 'wishlist', element: <WishList/> },
       { path: 'checkout', element: <Checkout/> },
+      { path: 'buyerprofile', element: <BuyerProfile/>}
       
     ],  
   },
