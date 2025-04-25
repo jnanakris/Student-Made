@@ -47,25 +47,27 @@ function Header() {
                     <div className="relative">
                         <button 
                             onClick={toggleDropdown}
-                            className="flex items-center hover:text-gray-300"
+                            className="flex items-center hover:text-gray-300 px-3 py-1 rounded hover:bg-green-700 transition-colors"
                         >
                             My Profile
                         </button>
+                        
                         {isDropdownOpen && (
                             <div 
-                                className="absolute right-0 mt-2 w-40 bg-gray-100 rounded-md shadow z-10"
+                                className="absolute right-0 mt-1 w-44 bg-gray-200 rounded-md shadow-lg z-50 border border-gray-300 overflow-hidden"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <Link 
                                     to="/buyerprofile" 
-                                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                                    className="block px-4 py-2.5 text-gray-800 hover:bg-gray-300 text-[0.95rem] font-medium transition-colors"
                                     onClick={() => setIsDropdownOpen(false)}
                                 >
                                     Profile
                                 </Link>
+                                <div className="border-t border-gray-400 mx-2"></div>
                                 <button 
                                     onClick={handleLogout} 
-                                    className="w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200"
+                                    className="block w-full text-left px-4 py-2.5 text-gray-800 hover:bg-gray-300 text-[0.95rem] font-medium transition-colors"
                                 >
                                     Logout
                                 </button>
