@@ -35,19 +35,19 @@ function Header() {
 
     return (
         <div className='px-10 flex justify-between items-center h-[10vh] bg-(--niner-green) text-white'>
-            <h1 className='text-4xl'>
+            <h1 className='text-4xl font-medium tracking-tight'>
                 <Link to="/">Niner Mine</Link>
             </h1>
 
-            <div className='flex items-center grow max-w-[300px] justify-between text-[1.1rem]'>
-                <Link to="/about">About</Link>
-                <Link to="/products">Shop</Link>
+            <div className='flex items-center justify-between w-full max-w-[500px] text-[1.1rem] font-medium'>
+                <Link to="/about" className="px-3 hover:text-gray-300">About</Link>
+                <Link to="/products" className="px-3 hover:text-gray-300">Shop</Link>
 
                 {isLoggedIn ? (
-                    <div className="relative">
+                    <div className="relative px-3">
                         <button 
                             onClick={toggleDropdown}
-                            className="flex items-center hover:text-gray-300 px-3 py-1 rounded hover:bg-green-700 transition-colors"
+                            className="hover:text-gray-300 rounded hover:bg-green-700 transition-colors"
                         >
                             My Profile
                         </button>
@@ -75,11 +75,11 @@ function Header() {
                         )}
                     </div>
                 ) : (
-                    <Link to="/login" className="hover:text-gray-300">Join/Login</Link>
+                    <Link to="/login" className="px-3 hover:text-gray-300">Join/Login</Link>
                 )}
                 
-                <Link to="/wishlist">Wishlist</Link>
-                <Link to="/cart" className="flex items-center relative">
+                <Link to="/wishlist" className="px-3 hover:text-gray-300">Wishlist</Link>
+                <Link to="/cart" className="flex items-center relative px-3 hover:text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -91,7 +91,7 @@ function Header() {
                 </Link>
             </div>
         </div>
-    )
+    );
 }
 
 export default Header
