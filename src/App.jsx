@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import './App.css'
 
@@ -10,6 +11,7 @@ import CreatorBubble from './components/CreatorBubble'
 import { CartProvider } from './context/CartContext'
 import { WishlistProvider } from './context/WishlistContext'
 import { AuthProvider } from './routes/AuthContent'
+import BecomeVendor from './routes/BecomeVendor'
 
 function App() {
   const [count, setCount] = useState(0)
