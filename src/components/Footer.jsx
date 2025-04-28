@@ -16,7 +16,6 @@ function Footer() {
                         <p className='text-2xl font-bold'>Explore</p>
                         <div className='text-lg mt-2 space-y-1'>
                             <p>Become a Vendor</p>
-                            <p>Custom Orders</p>
                         </div>
                     </div>
 

@@ -13,7 +13,7 @@ function Header() {
 
             <div className='flex items-center grow max-w-[300px] justify-between text-[1.1rem]'>
                 <Link to="/about">About</Link>
-                <Link to="/products">Shop</Link>
+                <Link to="/shop-all">Shop</Link>
                 <Link to="/login">Join/Login</Link>
                 <Link to="/wishlist">Wishlist</Link>
                 <Link to="/cart" className="flex items-center relative">

@@ -19,6 +19,7 @@ import Checkout from './routes/Checkout.jsx'
 import SignUp from './routes/SignUp.jsx'
 import ForgotPassword from './routes/ForgotPassword.jsx'
 import ResetPassword from './routes/ResetPassword.jsx'
+import Product from './routes/Product.jsx'
 
 import './index.css'
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     element: <App/>, // Root Layout
     children: [
       { index: true, element: <Home/> },
-      { path: 'products', element: <Products/> },
+      { path: 'shop-all', element: <Products/> },
       { path: 'cart', element: <Cart/> },
       { path: 'login', element: <LoginPage/> },
       { path: 'signup', element: <SignUp/> },
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       { path: 'vendor-profile', element: <VendorProfile/> },
       { path: 'wishlist', element: <WishList/> },
       { path: 'checkout', element: <Checkout/> },
+      { path: 'product', element: <Product/> },
       
     ],  
   },
