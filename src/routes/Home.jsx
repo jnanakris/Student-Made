@@ -63,7 +63,7 @@ function Home() {
             <div className="w-full h-[50vh] md:h-[60vh] lg:h-[80vh] bg-black text-white flex flex-col items-center justify-center px-4 md:px-8">  
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6">Welcome to Our Marketplace</h1>
                 <p className="text-lg md:text-xl text-center mb-8 max-w-2xl">Discover unique products from local artisans and vendors</p>
-                <Link to="/shop" className="bg-white text-black hover:bg-gray-200 transition-colors px-6 py-3 rounded-md font-medium text-lg">
+                <Link to="/shop-all" className="bg-white text-black hover:bg-gray-200 transition-colors px-6 py-3 rounded-md font-medium text-lg">
                     Shop Now
                 </Link>
             </div>
