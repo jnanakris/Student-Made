@@ -20,6 +20,7 @@ import SignUp from './routes/SignUp.jsx'
 import ForgotPassword from './routes/ForgotPassword.jsx'
 import ResetPassword from './routes/ResetPassword.jsx'
 import Product from './routes/Product.jsx'
+import BecomeVendor from './routes/BecomeVendor.jsx'
 
 import './index.css'
 
@@ -42,6 +43,8 @@ const router = createBrowserRouter([
       { path: 'wishlist', element: <WishList/> },
       { path: 'checkout', element: <Checkout/> },
       { path: 'product', element: <Product/> },
+      { path: 'buyerprofile', element: <BuyerProfile/>},
+      { path: 'becomevendor', element: <BecomeVendor/>},
       
     ],  
   },

@@ -1,6 +1,6 @@
 from app import app, db
 from models import User
-from flask import request, jsonify
+from flask import request, jsonify, session
 from datetime import datetime, timedelta
 import secrets
 import bcrypt
@@ -43,12 +43,28 @@ def login():
     data = request.json
     username_or_email = data.get("username")
     password = data.get("password")
+    remember_me = data.get("remember_me", False)
 
     user = User.query.filter((User.username == username_or_email) |
                                 (User.email == username_or_email)).first()
 
     if user and bcrypt.checkpw(password.encode('utf-8'), user.password):  # Use hashed password checking in production
-        return jsonify({"message": "Login Successful"}), 200
+
+        if remember_me:
+            user.remember_token = secrets.token_urlsafe(32)
+            user.remember_token_expiry = datetime.utcnow() + timedelta(days=2) 
+            db.session.commit()
+
+            response = jsonify({"message" : "Login Successful"})
+
+            response.set_cookie(
+                'remember_token',
+                user.remember_token,
+                expires=datetime.utcnow() + timedelta(days=2),
+                httponly=True,
+                secure=True 
+            )
+        return jsonify({"message" : "Login Successful"}), 200
     else:
         return jsonify({"error": "Invalid username/email or password"}), 401
 
@@ -103,3 +119,18 @@ def validate_reset_token():
         return jsonify({"valid": False}), 200
     
     return jsonify({"valid": True}), 200
+
+@app.route("/check_remembered", methods=["GET"])
+def check_rememberd():
+    remember_token = request.cookies.get("remember_token")
+
+    if not remember_token:
+        return jsonify({"remembered" : False}), 200
+    
+    user = User.query.filter_by(remember_token=remember_token).first()
+
+    if user and user.remember_token_expiry > datetime.utcnow():
+        return jsonify({"remembered" : True, "username": user.username}), 200
+    
+    return jsonify({"remembered" : False}), 200
+
