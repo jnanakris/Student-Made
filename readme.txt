@@ -25,7 +25,7 @@ Open command prompt
 STEP3:
 -------------
 Navigate to root directory.
-Run the following command:
+Run the following commands:
 npm install
 
 STEP 4:
